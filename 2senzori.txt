@@ -1,0 +1,41 @@
+#include "DHT.h"
+
+DHT dht;
+DHT dht2;
+
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println();
+
+  dht.setup(2); // data pin 2
+  dht2.setup(3);//data pin 3
+}
+
+void loop()
+{
+  
+  float humidity = dht.getHumidity();
+  float temperature = dht.getTemperature();
+  float humidity2 = dht2.getHumidity();
+  float temperature2 = dht2.getTemperature();
+  
+
+  Serial.print("humidity: ");
+  Serial.print(humidity,1);
+  Serial.print("\t\t");
+   Serial.print("temperature: ");
+  Serial.print(temperature, 1);
+  Serial.print("[C]");
+  Serial.print("\n");
+delay(3000);
+   Serial.print("humidity2: ");
+  Serial.print(humidity2, 1);
+  Serial.print("\t\t");
+   Serial.print("temperature2: ");
+  Serial.print(temperature2, 1);
+  Serial.print("[C]");
+  Serial.print("\n");
+
+  delay(3000);
+}
